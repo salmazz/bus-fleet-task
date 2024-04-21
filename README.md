@@ -20,11 +20,12 @@ This project provides a set of APIs for managing a mini bus reservation system. 
 
 ### Entities and Attributes
 
-- `users`: id, name, email, password, is_admin,email_verified_at
-- `buses `: id, total_seats
-- `seats`: id, bus_id, seat_number, is_available
-- `trips` : id,date, bus_id, origin_city_id , destination_city_id
-- `bookings `: id,trip_id , user_id,origin_city_id , destination_city_id,seat_id
+- `users`: id, name, email, password,email_verified_at
+- `buses `: id, vehicle_number', 'capacity
+- `trips` : id, bus_id
+- `stations` : id, name
+- `trip_stations` : id,trip_id,station_id,arrival_time, order
+- `booking` : id, user_id, trip_id, trip_station_from_id, trip_station_to_id, seat_number 
 
 ## API Endpoints
 
