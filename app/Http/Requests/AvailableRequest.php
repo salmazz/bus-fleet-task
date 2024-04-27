@@ -28,25 +28,4 @@ class AvailableRequest extends FormRequest
             'trip_id' => 'sometimes|integer|exists:trips,id'
         ];
     }
-
-    /**
-     * Get custom messages for validator errors.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            'trip_station_from_id.required' => 'The origin station is required.',
-            'trip_station_from_id.integer' => 'The origin station ID must be an integer.',
-            'trip_station_from_id.exists' => 'The selected origin station is invalid.',
-            'trip_station_to_id.required' => 'The destination station is required.',
-            'trip_station_to_id.integer' => 'The destination station ID must be an integer.',
-            'trip_station_to_id.exists' => 'The selected destination station is invalid.',
-            'date.required' => 'The date is required.',
-            'date.date' => 'The date must be a valid date.',
-            'trip_id.integer' => 'The trip ID must be an integer.',
-            'trip_id.exists' => 'The selected trip is invalid.'
-        ];
-    }
 }
