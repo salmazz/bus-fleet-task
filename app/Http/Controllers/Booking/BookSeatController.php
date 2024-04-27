@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Booking;
 
 use App\Dto\Booking\BookSeatDto;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BookSeatRequest;
 use App\Services\Booking\BookingServiceInterface;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,10 +29,10 @@ class BookSeatController extends Controller
     /**
      * Book seat for a trip
      *
-     * @param Request $request
+     * @param BookSeatRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function __invoke(Request $request)
+    public function __invoke(BookSeatRequest $request)
     {
         try {
             $bookSeatsDto = BookSeatDto::fromRequest($request);

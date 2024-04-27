@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Booking;
 
 use App\Dto\Booking\AvailableSeatDto;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AvailableRequest;
 use App\Services\Booking\BookingServiceInterface;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,10 +29,10 @@ class GetAvailableSeatsController extends Controller
     /**
      * Get available seats for a trip
      *
-     * @param Request $request
+     * @param AvailableRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function __invoke(Request $request)
+    public function __invoke(AvailableRequest $request)
     {
         try {
             $availableSeatsDto = AvailableSeatDto::fromRequest($request);
