@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Resources\Trip;
+namespace App\Http\Resources\User;
 
 use App\Http\Resources\Bus\BusResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TripResource extends JsonResource
+class UserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,7 +17,8 @@ class TripResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "bus_id" => new BusResource($this->bus),
+            "name" => $this->name,
+            "email" => $this->email,
         ];
     }
 }

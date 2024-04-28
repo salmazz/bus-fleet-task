@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Booking;
 use App\Dto\Booking\BookSeatDto;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BookSeatRequest;
+use App\Http\Resources\Booking\BookingResource;
 use App\Services\Booking\BookingServiceInterface;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,7 +39,7 @@ class BookSeatController extends Controller
             $bookSeatsDto = BookSeatDto::fromRequest($request);
             $booking = $this->bookingService->bookSeat($bookSeatsDto);
 
-            return jsonResponse("Booked successfully", ['booking' => $booking],  Response::HTTP_OK);
+            return jsonResponse("Booked successfully", ['booking' => new BookingResource($booking)],  Response::HTTP_OK);
         } catch (\Exception $e) {
             return jsonResponse($e->getMessage(), ['booking' => []],  Response::HTTP_NOT_FOUND);
         }
